@@ -50,7 +50,6 @@ const zebraStripes = [
     }
 });
 
-
 function isEven(n){
     if(n % 2 == 0){
       return true;
@@ -75,7 +74,5 @@ var coloredZebraStripes = zebraStripes.map(function(zebraStripe, index){
         });
   }
 });
-
-
 
 console.log(coloredZebraStripes);
