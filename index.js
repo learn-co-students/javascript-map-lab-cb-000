@@ -22,15 +22,20 @@ const zebraStripes = [
   { width: 7.31, color: null }
 ];
 
-var sortedRobots = robots.map(function (robot) {
-  var decepticonClassification = knownDecepticons.includes(robot.name);
-  return Object.assign({}, robot, {
-    alliance: decepticonClassification ? robots.alliance = 'decepticon' : 'autobot'
-  });
+var sortedRobots = robots.map(function(robot) {
+  if (knownDecepticons.includes(robot.name)) {
+    return { name: robot.name, alliance: "decepticon" }
+  }
+  else {
+    return { name: robot.name, alliance: "autobot" }
+  }
 });
 
-var coloredZebraStripes = zebraStripes.map(function (stripe, index) {
-    return Object.assign({}, stripe, {
-    color: index % 2 === 0 ? 'black' : 'white'
-  });
+var coloredZebraStripes = zebraStripes.map(function(stripe, index) {
+  if (index % 2 == 0) {
+    return { width: stripe.width, color: "black" }
+  }
+  else {
+    return { width: stripe.width, color: "white" }
+  }
 });
