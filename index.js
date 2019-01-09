@@ -29,3 +29,11 @@ const zebraStripes = [
   { width: 0.59, color: null },
   { width: 7.31, color: null }
 ];
+
+var coloredZebraStripes = zebraStripes.map(function (stripe, i) {
+  return Object.assign({}, stripe, {
+    width: stripe.width,
+    color: !(i % 2) ? 'black' : 'white',
+  });
+});
+
